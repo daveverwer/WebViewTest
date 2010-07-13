@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Demo with HTML5 video.</title>
+		<style>
+		  body,p { margin:0; padding:0; }
+		</style>
+	</head>
+	<body>
+	  <p><video width="1024" height="576" src="video.mp4" controls></video></p>
+	  <p><a href="call?cmd=exit">Exit</a></p>
+	  <a id="fakeClick" href="#"></a>
+		<script type="text/javascript" charset="utf-8">
+      var oVideoEvent = document.createEvent("MouseEvents");
+      var oVideoCTA = document.querySelector("#fakeClick");
+      var oVideo = document.querySelector("video");
+
+      oVideoCTA.addEventListener('click', function(e){
+      	e.preventDefault();
+        oVideo.play();
+      }, true);
+
+      oVideoEvent.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+      oVideoCTA.dispatchEvent(oVideoEvent);
+		</script>
+	</body>
+</html>
