@@ -1,5 +1,0 @@
-@interface MyWebView : UIWebView
-{
-}
-
-@end
